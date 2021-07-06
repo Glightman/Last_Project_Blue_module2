@@ -22,7 +22,7 @@ db = SQLAlchemy(app)
 class Users(db.Model):
     id = db.Column(db.Integer, primary_key = True)
     user_name = db.Column(db.String(60), nullable = False)
-    password_ = db,Column(db.String(16), nullable = False)
+    password_ = db.Column(db.String(16), nullable = False)
 
     def __init__(self, user_name, password_):
         self.user_name = user_name
@@ -31,7 +31,7 @@ class Users(db.Model):
     @staticmethod
     def read_single(user_name):
         return Users.query.get(user_name)
-
+"""
 class Pacientes1(db.Model):
     id = db.Column(db.Integer, primary_key = True)
     name_ = db.Column(db.String(60), nullable = False)
@@ -80,7 +80,24 @@ class Pacientes2(db.Model):
 
     def save(self):
         db.session.add(self)
-        db.session.commit()
+        db.session.commit() """
+
+@bp.route('/', methods=('GET', 'POST'))
+def home():
+    #usuario = None
+    if request.method == 'POST':
+        form = request.form
+        usuario = Users(form['nome'], form['senha'])
+        
+    return render_template('index.html')
+
+@bp.route('/logado')
+def logado():
+    if 
 
 
+app.register_blueprint(bp)
+
+if __name__ == '__main__':
+  app.run(debug=True)
         
