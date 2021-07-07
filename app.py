@@ -55,6 +55,10 @@ class Pacientes(db.Model):
         self.dose = new_data.dose
         self.save()
 
+    def delete(self):
+        db.session.delete(self) #estamos removendo as informações de um filme do banco de dados
+        db.session.commit()
+
 @bp.route('/')
 def index():
     return render_template('index.html')
@@ -89,6 +93,21 @@ def update(pacientes_id):
         paciente.update(new_data)
         sucesso = True
     return render_template('update.html', paciente=paciente,sucesso=sucesso)
+
+@bp.route('/delete/<pacientes_id>') #rota de confirmação do delete
+def delete(pacientes_id):
+    paciente=Pacientes.read_single(pacientes_id)
+    return render_template('delete.html', paciente=paciente)
+
+@bp.route('/delete/<pacientes_id>/confirmed') #rota que realiza de fato a deleçõ do filme selecionado e mostra o html de sucesso.
+def delete_confirmed(pacientes_id):
+    sucesso = None
+    paciente=Pacientes.read_single(pacientes_id)
+
+    if paciente:
+        paciente.delete()
+        sucesso=True
+    return render_template('delete.html', sucesso=sucesso)
 
 app.register_blueprint(bp)
 

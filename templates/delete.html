@@ -22,7 +22,7 @@
             <a href="/read" class="botao">Visualizar todos os cadastros</a>
         </div>
 
-    {% elif filme %}
+    {% elif paciente %}
     <!---->
 
         <div class="bloco">
@@ -30,11 +30,11 @@
         </div>
 
         <div class="bloco">
-            <p> Tem certeza que deseja remover paciente <span class="highlight">{{filme.nome}}</span> ? </P>
+            <p> Tem certeza que deseja remover paciente <span class="highlight">{{paciente.nome}}</span> ? </P>
         </div>
 
         <div class="bloco">
-            <a href="/delete/{{filme.id}}/confirmed" class="botao">Remover</a>
+            <a href="/delete/{{paciente.id}}/confirmed" class="botao">Remover</a>
             <a href="/read"class="botao">Cancelar</a>
         </div>
 
