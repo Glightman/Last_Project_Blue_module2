@@ -25,10 +25,10 @@ class Pacientes(db.Model):
     idade = db.Column(db.String(2), nullable = False)
     estado = db.Column(db.String(2), nullable = False)
     sexo = db.Column(db.String(1), nullable = False)
-    imagem_url = db.Column(db.String(255), nullable = False)
+    #imagem_url = db.Column(db.String(255), nullable = False)
     dose = db.Column(db.String(1), nullable = False)
 
-    def __init__(self, name_, idade, estado, sexo, imagem_url, dose):
+    def __init__(self, name_, idade, estado, sexo, dose):
         self.name_ = name_
         self.idade = idade
         self.estado = estado
@@ -38,7 +38,7 @@ class Pacientes(db.Model):
     
     @staticmethod
     def read_all():
-        return Pacientes.query.order_by(Pacientes.id.asc()).all()
+        return Pacientes.query.all()
     
     @staticmethod
     def read_single(pacientes_id):
@@ -56,12 +56,12 @@ def index():
 @bp.route('/read')
 def listar_pacientes():
     pacientes=Pacientes.read_all()
-    return render_template('listar_pacientes.html', listaDePacientes=pacientes)
-
+    return render_template('listar_pacientes.html', registros=pacientes)
+""" 
 @bp.route('/read/<pacientes_id>')
 def lista_detalhe_filme(pacientes_id):
     paciente = Pacientes.read_single(pacientes_id)
-    return render_template('read_single.html', pacientes=paciente)
+    return render_template('read_single.html', pacientes=paciente) """
 
 app.register_blueprint(bp)
 
