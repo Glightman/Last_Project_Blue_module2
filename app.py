@@ -33,7 +33,7 @@ class Pacientes(db.Model):
         self.idade = idade
         self.estado = estado
         self.sexo = sexo
-        self.imagem_url = imagem_url
+        #self.imagem_url = imagem_url
         self.dose = dose
     
     @staticmethod
@@ -41,8 +41,8 @@ class Pacientes(db.Model):
         return Pacientes.query.order_by(Pacientes.id.asc()).all()
     
     @staticmethod
-    def read_single(filmes_id):
-        return Pacientes.query.get(filmes_id)
+    def read_single(pacientes_id):
+        return Pacientes.query.get(pacientes_id)
 
     def save(self):
         db.session.add(self)
@@ -52,6 +52,16 @@ class Pacientes(db.Model):
 @bp.route('/')
 def index():
     return render_template('index.html')
+
+@bp.route('/read')
+def listar_pacientes():
+    pacientes=Pacientes.read_all()
+    return render_template('listar_pacientes.html', listaDePacientes=pacientes)
+
+@bp.route('/read/<pacientes_id>')
+def lista_detalhe_filme(pacientes_id):
+    paciente = Pacientes.read_single(pacientes_id)
+    return render_template('read_single.html', pacientes=paciente)
 
 app.register_blueprint(bp)
 
