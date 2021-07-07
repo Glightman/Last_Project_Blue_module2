@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title> Atualizar Cadastro </title>
+</head>
+
+<body>
+
+    {% include 'header.html' %}
+
+    {% if sucesso %}
+
+    <div class="bloco sucesso">
+        <p> Cadastro editado com sucesso </p>
+    </div>
+
+    {% endif %}
+
+    <div class="bloco">
+        <form method="POST" autocomplete="on">
+            <div class="bloco form_input">
+                <label for="nome">Nome:</label><br>
+                <input type="text" id="nome" name="nome" value="{{pacientes.name_}}" required><br>
+                <br>
+            </div>
+            <div class="bloco form_input">
+                <label for="idade">Idade</label><br>
+                <input type="idade" id="idade" name="idade" value="{{pacientes.idade}}" required><br>
+                <br>
+            </div>
+            <div class="bloco form_input">
+                <label for="UF">UF Estado: - exemplo: Bahia = BA</label><br>
+                <input type="text" id="UF" name="UF" value="{{pacientes.estado}}" required><br>
+                <br>
+            </div>
+            <div class="bloco form_input">
+                <label for="sexo">Sexo:</label><br>
+                <input type="radio" id="masc" name="sexo" value="M">masculino
+                <input type="radio" id="fem" name="sexo" value="F">feminino <br>
+                <br>
+            </div>
+            <div class="bloco form_input">
+                <label for="dose">Dose:</label><br>
+                <input type="radio" id="uma" name="dose" value="1">Primeira
+                <input type="radio" id="duas" name="dose" value="2">Segunda <br>
+                <br>
+            </div>
+            <div class="bloco form_input">
+                <input type="submit" value="Cadastrar" class="botao">
+                <br>
+            </div>
+        </form>
+    </div>
+
+    <div class="bloco">
+        <h2>Editar Registro</h2>
+    </div>
+
+</body>
+
+</html>

@@ -18,6 +18,7 @@ app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
 app.secret_key = 'secreta'
 db = SQLAlchemy(app)
 
+
 #MODELO
 class Pacientes(db.Model):
     id = db.Column(db.Integer, primary_key = True)
@@ -25,7 +26,6 @@ class Pacientes(db.Model):
     idade = db.Column(db.String(2), nullable = False)
     estado = db.Column(db.String(2), nullable = False)
     sexo = db.Column(db.String(1), nullable = False)
-    #imagem_url = db.Column(db.String(255), nullable = False)
     dose = db.Column(db.String(1), nullable = False)
 
     def __init__(self, name_, idade, estado, sexo, dose):
@@ -33,7 +33,6 @@ class Pacientes(db.Model):
         self.idade = idade
         self.estado = estado
         self.sexo = sexo
-        #self.imagem_url = imagem_url
         self.dose = dose
     
     @staticmethod
@@ -48,6 +47,13 @@ class Pacientes(db.Model):
         db.session.add(self)
         db.session.commit()
 
+    def update(self, new_data):
+        self.name_ = new_data.name_
+        self.idade = new_data.idade
+        self.estado = new_data.estado
+        self.sexo = new_data.sexo
+        self.dose = new_data.dose
+        self.save()
 
 @bp.route('/')
 def index():
@@ -57,11 +63,11 @@ def index():
 def listar_pacientes():
     pacientes=Pacientes.read_all()
     return render_template('listar_pacientes.html', registros=pacientes)
-""" 
+
 @bp.route('/read/<pacientes_id>')
 def lista_detalhe_paciente(pacientes_id):
     paciente = Pacientes.read_single(pacientes_id)
-    return render_template('read_single.html', pacientes=paciente) """
+    return render_template('read_single.html', pacientes=paciente)
 
 @bp.route('/create', methods=('GET','POST'))
 def create():
@@ -72,6 +78,17 @@ def create():
         paciente.save()
         id_atribuido=paciente.id
     return render_template('create.html', id_atribuido=id_atribuido)
+
+@bp.route('/update/<pacientes_id>', methods=('GET','POST'))
+def update(pacientes_id):
+    sucesso = None
+    paciente=Pacientes.read_single(pacientes_id)
+    if request.method =='POST':
+        form=request.form
+        new_data= Pacientes(form['nome'], form['idade'], form['UF'], form['sexo'], form['dose'])
+        paciente.update(new_data)
+        sucesso = True
+    return render_template('update.html', paciente=paciente,sucesso=sucesso)
 
 app.register_blueprint(bp)
 
