@@ -59,9 +59,19 @@ def listar_pacientes():
     return render_template('listar_pacientes.html', registros=pacientes)
 """ 
 @bp.route('/read/<pacientes_id>')
-def lista_detalhe_filme(pacientes_id):
+def lista_detalhe_paciente(pacientes_id):
     paciente = Pacientes.read_single(pacientes_id)
     return render_template('read_single.html', pacientes=paciente) """
+
+@bp.route('/create', methods=('GET','POST'))
+def create():
+    id_atribuido = None #como o metodo utiliz. no form é POST, pegamos os valores dos campos
+    if request.method =='POST':
+        form=request.form
+        paciente = Pacientes(form['nome'], form['idade'], form['UF'], form['sexo'], form['dose'])
+        paciente.save()
+        id_atribuido=paciente.id
+    return render_template('create.html', id_atribuido=id_atribuido)
 
 app.register_blueprint(bp)
 

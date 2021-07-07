@@ -8,10 +8,24 @@
 </head>
 <body>
     <div class="bloco">
-        <h1>Cadastro</h1>
-        <form action="/" method="post" autocomplete="on">
+        <h1>Cadastro</h1>  
+    </div>
+    {% if id_atribuido %}
+
+        <div class="bloco">
+            <p>Cadastro efetuado com sucesso!</br>
+                <br>
+            O ID atribuido foi <span class="id_atribuido">{{ id_atribuido}}</span>.<br>
+            <a href="/read/{{ id_atribuido}}" class ="botao">Visualizar</a>
+            </p>
+        </div>
+
+    {% else %}
+
+    <div class="bloco">
+        <form  method="POST" autocomplete="on">
             <div class="bloco form_input">
-                <label for="pnome">Nome:</label><br>
+                <label for="nome">Nome:</label><br>
                 <input type="text" id="nome" name="nome" required><br>
                 <br>
             </div>
@@ -21,20 +35,20 @@
                 <br>
             </div>
             <div class="bloco form_input">
-                <label for="local">Estado:</label><br>
-                <input type="text" id="local" name="local" required><br>
+                <label for="UF">UF Estado: - exemplo: Bahia = BA</label><br>
+                <input type="text" id="UF" name="UF" required><br>
                 <br>
             </div>
             <div class="bloco form_input">
                 <label for="sexo">Sexo:</label><br>
-                <input type="radio" id="masc" name="sexo" value="masculino">masc
-                <input type="radio" id="fem" name="sexo" value="feminino">fem <br>
+                <input type="radio" id="masc" name="sexo" value="M">masculino
+                <input type="radio" id="fem" name="sexo" value="F">feminino <br>
                 <br>
             </div>
             <div class="bloco form_input">
                 <label for="dose">Dose:</label><br>
-                <input type="radio" id="uma" name="dose" value="uma">Primeira
-                <input type="radio" id="duas" name="dose" value="duas">Segunda <br>
+                <input type="radio" id="uma" name="dose" value="1">Primeira
+                <input type="radio" id="duas" name="dose" value="2">Segunda <br>
                 <br>
             </div>
             <div class="bloco form_input">
@@ -42,7 +56,7 @@
                 <br>
             </div>
         </form>
-
     </div>
+  {% endif %}
 </body>
 </html>
