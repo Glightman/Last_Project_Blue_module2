@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cartão Paciente</title>
+</head>
+<body>
+    
+    {% include 'header.html' %}
+
+    <div class="bloco">
+        <h2>{{pacientes.name_}}</h2>
+    </div>
+    {% if pacientes.sexo == 'M' %}
+        <div class="bloco">
+            <img src="https://image.freepik.com/vetores-gratis/perfil-de-avatar-de-homem-no-icone-redondo_24640-14044.jpg" alt="{{pacientes.name_}}">
+        </div>
+   {% else %}
+    <div class="bloco">
+        <img src="https://image.freepik.com/vetores-gratis/perfil-de-avatar-de-mulher-no-icone-redondo_24640-14042.jpg" alt="{{pacientes.name_}}">
+    </div>
+    {% endif %}
+
+    <table class="tabela">
+        <tr class="tabela_header"><!--table header.. nesse exemplo mudei pra tr pra dar certo no css-->
+            <td>ID</td><!--table data-->
+            <td>Idade</td>
+            <td>Estado</td>
+            <td>Dose</td>
+        </tr>
+        <tbody><!--corpo da tabela-->
+                <tr>
+                    <td>{{pacientes.id}}</td>
+                    <td>{{pacientes.idade}}</td>
+                    <td>{{pacientes.estado}}</td>
+                    <td>{{pacientes.dose}}</td>
+                </tr>
+        </tbody>
+    </table>
+</body>
+</html>
