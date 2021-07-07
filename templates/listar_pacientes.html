@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    {% include 'header.html' %}
+    <div class="bloco">
+        <h2>Visualizar todos os títulos</h2>
+    </div>
+    <div class="bloco">
+        <table class="tabela">
+            <tr class="tabela_header"><!--table header.. nesse exemplo mudei pra tr pra dar certo no css-->
+                <td>ID</td><!--table data-->
+                <td>Nome</td>
+                <td>Idade</td>
+                <td>Estado</td>
+                <td>Sexo</td>
+                <td>Dose</td>
+            </tr>
+            <tbody><!--corpo da tabela-->
+                {% for pacientes in registros %}
+                <tr>
+                    <td>{{pacientes.id}}</td>
+                    <td>{{pacientes.nome}}</td>
+                    <td>{{pacientes.estado}}</td>
+                    <td>{{pacientes.sexo}}</td>
+                    <td>{{pacientes.dose}}</td>
+                    <td> <a href="/read/{{pacientes.id}}" class="botao">Visualizar</a></td>
+                </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+    </div>
+</body>
+</html>
