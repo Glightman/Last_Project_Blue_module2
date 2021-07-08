@@ -1,0 +1,36 @@
+#lateral{
+    width: 30%;
+    font-size: 18px;
+    color: rgb(78, 73, 73);
+    margin-top: 5%;
+    justify-content: left;
+    display: flex;
+    text-align: center;
+}
+#lateral h2{
+    color: rgb(10, 10, 10);
+    font-size: 30px;
+    font-weight: 900;
+    font-family: Allerta Stencil, sans-serif;
+    font-size: 33px;
+    font-weight: 900;
+    color: rgba(9, 36, 235, 1);  
+}
+.texto{
+    padding-left: 5%;
+    text-align: justify;
+    justify-content: center;    
+}
+.flourish-chart {
+    background-color: rgba(57, 57, 233, 0.74);
+    margin-left: 100%;
+    justify-content: center;
+    display: inline-block;
+    width: 800%;
+    min-height: 80%;
+}
+
+#central{
+    
+    justify-content: center;
+}
