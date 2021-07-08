@@ -56,3 +56,9 @@ body {
 
     display: flex;
 }
+.icones p{
+    display: none;
+}
+.icones:hover p{
+    display: inline;
+}
