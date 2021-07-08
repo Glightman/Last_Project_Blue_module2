@@ -64,7 +64,5 @@ body {
     display: inline;
     background-color: rgba(17, 17, 17, 0.822);
     position: relative;
-    left: 200px;
-    top: -200px;
     display: flex;
 }
