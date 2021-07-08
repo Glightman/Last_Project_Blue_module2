@@ -13,6 +13,17 @@ body {
     background: rgb(179, 194, 188); /**alterado cor de fundo**/
 }
 
+.tabela tr td{
+
+    border: 2px solid #ffffff;
+}
+
+.tabela_header{
+    background-color: #ffffff;
+ 
+
+}
+
 .bloco {
     display: flex;
     justify-content: center;
@@ -41,6 +52,23 @@ body {
     padding: 15px 32px;
     text-align: center;
     text-decoration: none;
+}
+
+.botao_acao{
+    background-color: #3b4ba3;
+    border: none;
+    border-radius: 10px;
+    color: white;
+    cursor: pointer;
+    display: inline-block;
+    font-size: 15px;
+    margin: 0 5px;
+    padding: 15px 32px;
+    text-align: center;
+    text-decoration: none;
+    height: 15px;
+
+
 }
 
 .botao:hover {
