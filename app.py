@@ -56,7 +56,7 @@ class Pacientes(db.Model):
         self.save()
 
     def delete(self):
-        db.session.delete(self) #estamos removendo as informações de um filme do banco de dados
+        db.session.delete(self) 
         db.session.commit()
 
 @bp.route('/')
