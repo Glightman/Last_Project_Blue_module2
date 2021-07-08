@@ -26,39 +26,41 @@
     {% else %}
 
     <div class="bloco">
-        <form  method="POST" autocomplete="on">
-            <div class="bloco form_input">
-                <label for="nome">Nome:</label><br>
-                <input type="text" id="nome" name="nome" required><br>
+        <fieldset>
+            <form  method="POST" autocomplete="on">
+                <div class="bloco form_input">
+                    <label for="nome">Nome:</label><br>
+                    <input type="text" id="nome" name="nome" class="inputform" required><br>
+                    <br>
+                </div>
+                <div class="bloco form_input">
+                    <label for="idade">Idade</label><br>
+                    <input type="idade" id="idade" name="idade" class="inputform" required><br>
                 <br>
-            </div>
-            <div class="bloco form_input">
-                <label for="idade">Idade</label><br>
-                <input type="idade" id="idade" name="idade" required><br>
+                </div>
+                <div class="bloco form_input">
+                    <label for="UF">Estado:</label><br>
+                    <input type="text" id="UF" name="UF" class="inputform" required><br>
                 <br>
-            </div>
-            <div class="bloco form_input">
-                <label for="UF">UF Estado:</label><br>
-                <input type="text" id="UF" name="UF" required><br>
+                </div>
+                <div class="bloco form_input">
+                    <label for="sexo">Sexo:</label><br>
+                    <input type="radio" id="masc" name="sexo" value="M">masculino
+                    <input type="radio" id="fem" name="sexo" value="F">feminino <br>
                 <br>
-            </div>
-            <div class="bloco form_input">
-                <label for="sexo">Sexo:</label><br>
-                <input type="radio" id="masc" name="sexo" value="M">masculino
-                <input type="radio" id="fem" name="sexo" value="F">feminino <br>
+                </div>
+                <div class="bloco form_input">
+                    <label for="dose">Dose:</label><br>
+                    <input type="radio" id="uma" name="dose" value="1">Primeira
+                    <input type="radio" id="duas" name="dose" value="2">Segunda <br>
                 <br>
-            </div>
-            <div class="bloco form_input">
-                <label for="dose">Dose:</label><br>
-                <input type="radio" id="uma" name="dose" value="1">Primeira
-                <input type="radio" id="duas" name="dose" value="2">Segunda <br>
+                </div>
+                <div class="bloco form_input">
+                    <input type="submit" value="Cadastrar" class="botao">
                 <br>
-            </div>
-            <div class="bloco form_input">
-                <input type="submit" value="Cadastrar" class="botao">
-                <br>
-            </div>
-        </form>
+                </div>
+            </form>
+        </fieldset>
     </div>
   {% endif %}
 </body>
