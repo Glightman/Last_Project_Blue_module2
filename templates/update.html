@@ -13,6 +13,10 @@
 
     {% include 'header.html' %}
 
+    <div class="bloco">
+            <h2>Editar Cadastro</h2>
+    </div>
+
     {% if sucesso %}
 
     <div class="bloco sucesso">
@@ -22,45 +26,45 @@
     {% endif %}
 
     <div class="bloco">
-        <form method="POST" autocomplete="on">
-            <div class="bloco form_input">
-                <label for="nome">Nome:</label><br>
-                <input type="text" id="nome" name="nome" value="{{pacientes.name_}}" required><br>
-                <br>
-            </div>
-            <div class="bloco form_input">
-                <label for="idade">Idade</label><br>
-                <input type="idade" id="idade" name="idade" value="{{pacientes.idade}}" required><br>
-                <br>
-            </div>
-            <div class="bloco form_input">
-                <label for="UF">UF Estado: - exemplo: Bahia = BA</label><br>
-                <input type="text" id="UF" name="UF" value="{{pacientes.estado}}" required><br>
-                <br>
-            </div>
-            <div class="bloco form_input">
-                <label for="sexo">Sexo:</label><br>
-                <input type="radio" id="masc" name="sexo" value="M">masculino
-                <input type="radio" id="fem" name="sexo" value="F">feminino <br>
-                <br>
-            </div>
-            <div class="bloco form_input">
-                <label for="dose">Dose:</label><br>
-                <input type="radio" id="uma" name="dose" value="1">Primeira
-                <input type="radio" id="duas" name="dose" value="2">Segunda <br>
-                <br>
-            </div>
-            <div class="bloco form_input">
-                <input type="submit" value="Cadastrar" class="botao">
-                <br>
-            </div>
-        </form>
-    </div>
+        <fieldset>
+        
 
-    <div class="bloco">
-        <h2>Editar Registro</h2>
+            <form  method="POST" autocomplete="on">
+                <div class="bloco form_input">
+                    <label for="nome">Nome:</label><br>
+                    <input type="text" id="nome" name="nome" class="inputform" placeholder="Nome" required><br>
+                    <br>
+                </div>
+                <div class="bloco form_input">
+                    <label for="idade">Idade</label><br>
+                    <input type="idade" id="idade" name="idade" class="inputform" placeholder="Idade" required><br>
+                <br>
+                </div>
+                <div class="bloco form_input">
+                    <label for="UF">Estado:</label><br>
+                    <input type="text" id="UF" name="UF" class="inputform" placeholder="UF" required><br>
+                <br>
+                </div>
+                <div class="bloco form_input">
+                    <label for="sexo">Sexo:</label><br>
+                    <input type="radio" id="masc" name="sexo" value="M">masculino
+                    <input type="radio" id="fem" name="sexo" value="F">feminino <br>
+                <br>
+                </div>
+                <div class="bloco form_input">
+                    <label for="dose">Dose:</label><br>
+                    <input type="radio" id="uma" name="dose" value="1">Primeira
+                    <input type="radio" id="duas" name="dose" value="2">Segunda <br>
+                <br>
+                </div>
+                <div class="bloco form_input">
+                    <input type="submit" value="Cadastrar" class="botao">
+                <br>
+                </div>
+            </form>
+        </fieldset>
     </div>
-
+     
 </body>
 
 </html>
