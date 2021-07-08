@@ -18,7 +18,6 @@ app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
 app.secret_key = 'secreta'
 db = SQLAlchemy(app)
 
-
 #MODELO
 class Pacientes(db.Model):
     id = db.Column(db.Integer, primary_key = True)
@@ -37,7 +36,7 @@ class Pacientes(db.Model):
     
     @staticmethod
     def read_all():
-        return Pacientes.query.all()
+        return Pacientes.query.order_by(Pacientes.idade).all()
     
     @staticmethod
     def read_single(pacientes_id):
