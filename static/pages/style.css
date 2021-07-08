@@ -1,16 +1,26 @@
 @import url('https://fonts.googleapis.com/css2?family=Poppins&display=swap');
-
-
 body {
-    background: rgb(179, 194, 188); /**alterado cor de fundo por anderson**/
-    font-family: 'poppins', sans-serif;/**alterado fonte**/
+    background: rgb(179, 194, 188);
+    /**alterado cor de fundo por anderson**/
+    font-family: 'poppins', sans-serif;
+    /**alterado fonte**/
     margin: 0;
     min-height: calc(100vh - 40px);
 }
 
+h2 {
+    text-align: center;
+    font-weight: bold;
+}
+
+p {
+    text-align: center;
+}
+
 .header {
     padding-top: 20px;
-    background: rgb(179, 194, 188); /**alterado cor de fundo**/
+    background: rgb(179, 194, 188);
+    /**alterado cor de fundo**/
 }
 
 .bloco {
@@ -19,21 +29,19 @@ body {
     text-align: center;
 }
 
-.bloco img{  /**imagem editada e alterada cor e tamanho**/
-
-    height:100px;
+.bloco img {
+    /**imagem editada e alterada cor e tamanho**/
+    height: 100px;
 }
 
-
-
-.bloco h1{
-
+.bloco h1 {
     color: #ffffff;
 }
 
-.bloco h2{
+.bloco h2 {
     color: #ffffff;
 }
+
 .botao {
     background-color: #3b4ba3;
     border: none;
@@ -52,14 +60,15 @@ body {
     background-color: #5673ee;
 }
 
-.logo{
-
+.logo {
     display: flex;
 }
-.icones p{
+
+.icones p {
     display: none;
 }
-.icones:hover p{
+
+.icones:hover p {
     color: blanchedalmond;
     display: inline;
     background-color: rgba(17, 17, 17, 0.822);
