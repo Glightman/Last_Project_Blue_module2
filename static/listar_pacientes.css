@@ -30,6 +30,13 @@ body {
     text-align: center;
 }
 
+.imagem{
+    width: 200;
+    height: 300;
+    text-align: center;
+    border-bottom: 10px;
+}
+
 .bloco img{  /**imagem editada e alterada cor e tamanho**/
 
     height:100px;
@@ -78,4 +85,15 @@ body {
 .logo{
 
     display: flex;
+}
+
+.tabela_header td {
+    font-weight: bold;
+}
+
+.tabela {
+    border: 1px solid #bababa;
+    border-spacing: 0;
+    margin: 0 50px 20px;
+    width: 100%;
 }
