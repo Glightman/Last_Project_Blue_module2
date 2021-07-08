@@ -92,7 +92,7 @@ def update(pacientes_id):
         new_data= Pacientes(form['nome'], form['idade'], form['UF'], form['sexo'], form['dose'])
         paciente.update(new_data)
         sucesso = True
-    return render_template('update.html', paciente=paciente,sucesso=sucesso)
+    return render_template('update.html', pacientes=paciente, sucesso=sucesso)
 
 @bp.route('/delete/<pacientes_id>') #rota de confirmação do delete
 def delete(pacientes_id):
